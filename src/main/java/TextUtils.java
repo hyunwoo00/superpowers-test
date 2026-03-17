@@ -17,7 +17,7 @@ public class TextUtils {
     }
 
     public static int countWords(String text) {
-        if(text == null || text.isEmpty()) return 0;
+        if(text == null || text.isBlank()) return 0;
         return text.trim().split("\\s+").length;
     }
 }

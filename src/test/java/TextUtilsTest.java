@@ -27,7 +27,7 @@ class TextUtilsTest {
 
     @Test
     void slugify_basic_convertsToLowerKebab() {
-        assertEquals("hello-world", TextUtils.slugify("hello-world"));
+        assertEquals("hello-world", TextUtils.slugify("Hello World"));
     }
 
     @Test
@@ -75,6 +75,11 @@ class TextUtilsTest {
     void countWords_emptyOrNull_returnsZero() {
         assertEquals(0, TextUtils.countWords(""));
         assertEquals(0, TextUtils.countWords(null));
+    }
+
+    @Test
+    void countWords_whitespaceOnly_returnsZero() {
+        assertEquals(0, TextUtils.countWords("   "));
     }
 
     @Test
