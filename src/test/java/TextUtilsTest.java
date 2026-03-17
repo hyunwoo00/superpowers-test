@@ -55,4 +55,31 @@ class TextUtilsTest {
     void slugify_leadingTrailingDashes_stripped() {
         assertEquals("hello", TextUtils.slugify("      hello      "));
     }
+
+    @Test
+    void countWords_basicSentence_returnsWordCount() {
+        assertEquals(3, TextUtils.countWords("hello world foo"));
+    }
+
+    @Test
+    void countWords_multipleSpaces_countedCorrectly() {
+        assertEquals(2, TextUtils.countWords("hello    world"));
+    }
+
+    @Test
+    void countWords_leadingTrailingSpaces_ignored() {
+        assertEquals(2, TextUtils.countWords("  hello world  "));
+    }
+
+    @Test
+    void countWords_emptyOrNull_returnsZero() {
+        assertEquals(0, TextUtils.countWords(""));
+        assertEquals(0, TextUtils.countWords(null));
+    }
+
+    @Test
+    void countWords_singleWord_returnsOne() {
+        assertEquals(1, TextUtils.countWords("hello"));
+    }
+
 }
