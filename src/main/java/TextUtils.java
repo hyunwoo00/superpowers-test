@@ -5,4 +5,14 @@ public class TextUtils {
         if(maxLen <= 3) return "...";
         return text.substring(0, maxLen - 3) + "...";
     }
+
+    public static String slugify(String text) {
+        if(text == null || text.isEmpty()) return "";
+
+        return text.trim()
+                .toLowerCase()
+                .replaceAll("\\s+", "-")
+                .replaceAll("[^a-z0-9-]", "")
+                .replaceAll("^-+|-+$", "");
+    }
 }
