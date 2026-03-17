@@ -113,11 +113,32 @@ git commit -m "chore: initialize text-utils Java project"
 
 ---
 
+## 브랜치 전략
+
+- `main` — 안정 브랜치 (직접 커밋 금지)
+- `feature/task-N-이름` — 태스크별 작업 브랜치
+- 각 태스크 완료 후 GitHub PR 생성 → merge → 다음 태스크
+
+```
+main
+ └─ feature/task-2-truncate   → PR → merge
+ └─ feature/task-3-slugify    → PR → merge
+ └─ feature/task-4-count-words → PR → merge
+```
+
+---
+
 ### Task 2: `truncate` 구현 (TDD)
 
 **Files:**
-- Modify: `text-utils/src/test/java/TextUtilsTest.java`
-- Modify: `text-utils/src/main/java/TextUtils.java`
+- Modify: `src/test/java/TextUtilsTest.java`
+- Modify: `src/main/java/TextUtils.java`
+
+- [ ] **Step 0: feature 브랜치 생성**
+
+```bash
+git checkout -b feature/task-2-truncate
+```
 
 - [ ] **Step 1: 실패하는 테스트 작성**
 
@@ -175,8 +196,20 @@ Expected: `BUILD SUCCESS`, 4 tests passed
 - [ ] **Step 5: Commit**
 
 ```bash
-git add text-utils/src/
+git add src/
 git commit -m "feat: implement truncate with TDD"
+```
+
+- [ ] **Step 6: PR 생성 및 merge**
+
+```bash
+git push -u origin feature/task-2-truncate
+```
+
+GitHub에서 PR 생성 → main으로 merge → 로컬 main 업데이트:
+
+```bash
+git checkout main && git pull
 ```
 
 ---
@@ -184,8 +217,14 @@ git commit -m "feat: implement truncate with TDD"
 ### Task 3: `slugify` 구현 (TDD)
 
 **Files:**
-- Modify: `text-utils/src/test/java/TextUtilsTest.java`
-- Modify: `text-utils/src/main/java/TextUtils.java`
+- Modify: `src/test/java/TextUtilsTest.java`
+- Modify: `src/main/java/TextUtils.java`
+
+- [ ] **Step 0: feature 브랜치 생성**
+
+```bash
+git checkout -b feature/task-3-slugify
+```
 
 - [ ] **Step 1: 실패하는 테스트 작성**
 
@@ -254,8 +293,20 @@ Expected: `BUILD SUCCESS`, 10 tests passed
 - [ ] **Step 5: Commit**
 
 ```bash
-git add text-utils/src/
+git add src/
 git commit -m "feat: implement slugify with TDD"
+```
+
+- [ ] **Step 6: PR 생성 및 merge**
+
+```bash
+git push -u origin feature/task-3-slugify
+```
+
+GitHub에서 PR 생성 → main으로 merge → 로컬 main 업데이트:
+
+```bash
+git checkout main && git pull
 ```
 
 ---
@@ -263,8 +314,14 @@ git commit -m "feat: implement slugify with TDD"
 ### Task 4: `countWords` 구현 (TDD)
 
 **Files:**
-- Modify: `text-utils/src/test/java/TextUtilsTest.java`
-- Modify: `text-utils/src/main/java/TextUtils.java`
+- Modify: `src/test/java/TextUtilsTest.java`
+- Modify: `src/main/java/TextUtils.java`
+
+- [ ] **Step 0: feature 브랜치 생성**
+
+```bash
+git checkout -b feature/task-4-count-words
+```
 
 - [ ] **Step 1: 실패하는 테스트 작성**
 
@@ -324,8 +381,20 @@ Expected: `BUILD SUCCESS`, 15 tests passed
 - [ ] **Step 5: Commit**
 
 ```bash
-git add text-utils/src/
+git add src/
 git commit -m "feat: implement countWords with TDD"
+```
+
+- [ ] **Step 6: PR 생성 및 merge**
+
+```bash
+git push -u origin feature/task-4-count-words
+```
+
+GitHub에서 PR 생성 → main으로 merge → 로컬 main 업데이트:
+
+```bash
+git checkout main && git pull
 ```
 
 ---
