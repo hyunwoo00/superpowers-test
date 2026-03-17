@@ -15,4 +15,9 @@ public class TextUtils {
                 .replaceAll("[^a-z0-9-]", "")
                 .replaceAll("^-+|-+$", "");
     }
+
+    public static int countWords(String text) {
+        if(text == null || text.isEmpty()) return 0;
+        return text.trim().split("\\s+").length;
+    }
 }
